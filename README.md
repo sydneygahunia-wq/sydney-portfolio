@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SydAmp — Sydney Gahunia's portfolio
 
-## Getting Started
+**Live site: [sydneygahunia.com](https://sydneygahunia.com)**
 
-First, run the development server:
+My personal portfolio, built as a Y2K music desktop: a Windows 98–style "media library" window, a Winamp-inspired player called SydAmp, and a pastel palette. Each role is a CD in the rack, each resume bullet is a track, and my skills are mixtapes.
+
+## Features
+
+- **CD Rack:** experience shown as jewel cases. Click one to open its "album" page with a full tracklist of what I worked on.
+- **SydAmp player:** a working player with an LCD clock, spectrum visualizer, seek bar, shuffle and a playlist of every track on the site.
+- **Mixtapes:** skills grouped into cassettes (Languages, AI / ML, Frameworks, Dev Tools).
+- **Win98 shell:** Start menu, taskbar, desktop shortcuts, and a Back / Forward / Address toolbar.
+- **Responsive:** a full desktop layout on large screens, and a docked mini player with a single window on phones.
+
+## Tech stack
+
+- [Next.js 14](https://nextjs.org) (App Router, static generation)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com) with design tokens as CSS variables
+- [Framer Motion](https://www.framer.com/motion/) (LazyMotion) for animations and page transitions
+- Deployed on [Vercel](https://vercel.com)
+
+All visuals (covers, CDs, cassettes) are drawn with CSS, so the site loads no images, and the only web font is the LCD typeface.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All text lives in [`lib/content.ts`](lib/content.ts): the bio, each role and its bullets ("tracks"), and the skill mixtapes. The components only handle presentation, so most updates are a single edit in that file.
