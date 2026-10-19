@@ -30,7 +30,7 @@ export const kindLabel: Record<AlbumKind, string> = {
   EP: "Leadership",
   Playlist: "Playlist",
 };
-export type CoverIcon = "sparkles" | "stethoscope" | "smartphone" | "heart-pulse" | "users" | "heart";
+export type CoverIcon = "sparkles" | "stethoscope" | "smartphone" | "heart-pulse" | "users" | "heart" | "bot";
 
 export type Album = {
   slug: string;
@@ -44,6 +44,7 @@ export type Album = {
   colors: [string, string];
   icon: CoverIcon;
   stack: string[];
+  links?: { label: string; href: string }[]; // e.g. live demo, GitHub (shown on the album page)
   tracks: Track[];
 };
 
@@ -166,6 +167,39 @@ export const albums: Album[] = [
         detail:
           "Developed automated testing and CI workflows using XCTest and GitHub Actions to validate detection logic across 1,000+ simulated heart-rate samples and benchmark processing performance.",
         duration: "3:06",
+      },
+    ],
+  },
+  {
+    slug: "forma",
+    kind: "Single",
+    title: "Forma",
+    role: "Full-stack project",
+    org: "Personal project",
+    period: "Oct 2026",
+    year: "2026",
+    colors: ["#bff0dd", "#f6c9e0"],
+    icon: "bot",
+    stack: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "Redis", "WebSockets", "Docker", "Playwright"],
+    links: [
+      { label: "Live demo", href: "https://forma-ten-bice.vercel.app" },
+      { label: "GitHub", href: "https://github.com/sydneygahunia-wq/Forma" },
+    ],
+    tracks: [
+      {
+        detail:
+          "Built a full-stack e-commerce platform with Next.js, TypeScript, FastAPI, and PostgreSQL, where orders are fulfilled by a simulated fleet of warehouse robots streamed live over WebSockets.",
+        duration: "3:48",
+      },
+      {
+        detail:
+          "Engineered a real-time warehouse simulation where robots plan their own routes with A* pathfinding and avoid collisions, plus an order-batching scheduler that fulfilled orders 15.7% faster than first-come-first-served.",
+        duration: "3:37",
+      },
+      {
+        detail:
+          "Prevented overselling with atomic PostgreSQL transactions and idempotency keys, validated by 100+ Pytest, Vitest, and Playwright tests in GitHub Actions CI.",
+        duration: "3:05",
       },
     ],
   },

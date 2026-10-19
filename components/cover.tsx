@@ -1,5 +1,5 @@
 // Generated "album art": gradient + icon + type, so there are zero image requests.
-import { Heart, HeartPulse, Smartphone, Sparkles, Stethoscope, Users } from "lucide-react";
+import { Bot, Heart, HeartPulse, Smartphone, Sparkles, Stethoscope, Users } from "lucide-react";
 import { kindLabel, type Album, type CoverIcon } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +10,7 @@ const icons: Record<CoverIcon, typeof Heart> = {
   "heart-pulse": HeartPulse,
   users: Users,
   heart: Heart,
+  bot: Bot,
 };
 
 export function Cover({

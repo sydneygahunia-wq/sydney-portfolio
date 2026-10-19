@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 import { LiveJewelCase, PlayAlbumButton, TrackList } from "@/components/album/album-controls";
+import { Btn } from "@/components/retro/button";
 import { CdShelf } from "@/components/retro/cd-shelf";
 import { RetroHeading } from "@/components/retro/heading";
 import { albumLength, albums, getAlbum, kindLabel, profile } from "@/lib/content";
@@ -63,6 +65,11 @@ export default function AlbumPage({ params }: { params: { slug: string } }) {
       <div className="px-4 pb-16 md:px-8">
         <div className="flex flex-wrap items-center gap-3 py-6">
           <PlayAlbumButton album={album} />
+          {album.links?.map((link) => (
+            <Btn key={link.href} href={link.href} external>
+              {link.label} <ExternalLink size={12} />
+            </Btn>
+          ))}
           {album.stack.length > 0 && (
             <ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
               {album.stack.map((s) => (
