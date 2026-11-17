@@ -147,13 +147,16 @@ export function PondScene({
       dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       scale = Math.min(Math.max(Math.min(w, h), 520), 1100);
 
-      sceneCanvas.width = Math.round(w);
-      sceneCanvas.height = Math.round(h);
+      // Every canvas is at least 1x1: before layout (or while hidden) the box can
+      // be 0x0, and drawing a 0-sized canvas with drawImage throws, which would
+      // take down the whole page.
+      sceneCanvas.width = Math.max(1, Math.round(w));
+      sceneCanvas.height = Math.max(1, Math.round(h));
       soft.width = Math.max(1, Math.round(w * SOFT_SCALE));
       soft.height = Math.max(1, Math.round(h * SOFT_SCALE));
       paintFloor(layers.floor, w, h);
-      surface.width = Math.round(w * dpr);
-      surface.height = Math.round(h * dpr);
+      surface.width = Math.max(1, Math.round(w * dpr));
+      surface.height = Math.max(1, Math.round(h * dpr));
       surfaceCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
       water?.resize(w, h, Math.min(dpr, 1.25));
 
