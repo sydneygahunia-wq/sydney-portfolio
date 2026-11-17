@@ -1,13 +1,5 @@
-import { CdRack } from "@/components/sections/cd-rack";
-import { Hero } from "@/components/sections/hero";
-import { Mixtapes } from "@/components/sections/mixtapes";
+import { HomePond } from "@/components/pond/home-pond";
 
 export default function Home() {
-  return (
-    <div className="pb-16">
-      <Hero />
-      <CdRack />
-      <Mixtapes />
-    </div>
-  );
+  return <HomePond />;
 }
