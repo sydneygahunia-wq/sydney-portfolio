@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import { MotionProvider } from "@/components/motion-provider";
+import { WakeDemos } from "@/components/wake-demos";
 import { profile } from "@/lib/content";
 import "./globals.css";
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body>
         <MotionProvider>{children}</MotionProvider>
+        <WakeDemos />
       </body>
     </html>
   );

@@ -71,6 +71,9 @@ export type Project = {
   period?: string;
   stack: string[];
   links: { label: string; href: string }[];
+  /** Pinged when someone opens the portfolio, so a demo hosted on a free
+   * tier that sleeps when idle is already awake by the time they click it. */
+  wakeUrl?: string;
   bullets: string[];
 };
 
@@ -83,6 +86,7 @@ export const projects: Project[] = [
       { label: "Live demo", href: "https://forma-ten-bice.vercel.app" },
       { label: "GitHub", href: "https://github.com/sydneygahunia-wq/Forma" },
     ],
+    wakeUrl: "https://forma-api-je9l.onrender.com/api/ping",
     bullets: [
       "Built a full-stack e-commerce simulation where virtual robots pick and pack orders in a warehouse, using WebSockets to stream each order's progress live.",
       "Programmed robots to find the shortest route with A* pathfinding, avoid collisions with each other, and group nearby orders into batches to reduce trips.",
